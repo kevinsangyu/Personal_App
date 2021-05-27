@@ -22,16 +22,17 @@ public class MainActivity extends AppCompatActivity {
         changeText();
     }
 
-    public void buttonTextChange(View v) { // how do we pass in parameters? for example a string to change text to
+    public void buttonTextChange(View v) {
         Button b = (Button) v;
         b.setText("Disabled");
         Log.d("success", "Button was renamed");
     }
 
     public void changeText() {
-        TextView v = findViewById(R.id.hello); // is static at the moment
-        v.setText("Changed text");
-        // ((TextView)findViewById(R.id.hello)).setText("Changed text"); also works
-        Log.d("success", "hello text was changed");
+        TextView t = findViewById(R.id.hello); // is static at the moment
+        String text = ((EditText)findViewById(R.id.change)).getText().toString();
+        t.setText(text);
+        Log.d("success", "hello text was changed to " + text);
     }
+
 }
